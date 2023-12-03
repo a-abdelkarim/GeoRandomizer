@@ -1,0 +1,47 @@
+# This file contains metadata for your plugin.
+
+# This file should be included when you package your plugin.# Mandatory items:
+
+[general]
+name=Geo Randomizer
+qgisMinimumVersion=3.0
+description=Generate random points or lines inside polygon layer
+version=0.1
+author=adcurt
+email=a.abdelkarim9696@gmail.com
+
+about=The GeoRandomizer QGIS plugin is a powerful tool designed to streamline spatial analysis by generating random points or lines within polygon layers. Tailored for geospatial enthusiasts, analysts, and researchers, GeoRandomizer simplifies the task of populating polygon areas with strategically positioned random points.
+
+tracker=https://github.com/a-abdelkarim/GeoRandomizer/issues
+repository=https://github.com/a-abdelkarim/GeoRandomizer
+# End of mandatory metadata
+
+# Recommended items:
+
+hasProcessingProvider=no
+# Uncomment the following line and add your changelog:
+# changelog=
+
+# Tags are comma separated with spaces allowed
+tags=export, editing, geojson, geometry, layers, osm, point, polygon, polyline, shapefile, vector
+
+homepage=https://github.com/a-abdelkarim/GeoRandomizer/issues
+category=Plugins
+icon=icon.png
+# experimental flag
+experimental=False
+
+# deprecated flag (applies to the whole plugin, not just a single version)
+deprecated=False
+
+# Since QGIS 3.8, a comma separated list of plugins to be installed
+# (or upgraded) can be specified.
+# Check the documentation for more information.
+# plugin_dependencies=
+
+Category of the plugin: Raster, Vector, Database or Web
+# category=
+
+# If the plugin can run on QGIS Server.
+server=False
+
