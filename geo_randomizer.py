@@ -31,6 +31,8 @@ from .resources import *
 from .geo_randomizer_dialog import GeoRandomizerDialog
 import os.path
 
+from .modules.generator_factory import GeneratorFactory
+
 
 class GeoRandomizer:
     """QGIS Plugin Implementation."""
@@ -197,4 +199,13 @@ class GeoRandomizer:
         if result:
             # Do something useful here - delete the line containing pass and
             # substitute with your code.
-            pass
+            point_generator = GeneratorFactory(
+                generator_type="point",
+                file_path='',
+                out_name='',
+                features_number=''
+            ) 
+        
+    
+    def handle_ui(self):
+        pass
