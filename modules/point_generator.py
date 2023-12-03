@@ -4,7 +4,7 @@ from shapely.geometry import Polygon, Point, mapping
 import json
 import geojson
 
-from generator import Generator
+from .generator import Generator
 
 
 class PointGenerator(Generator):

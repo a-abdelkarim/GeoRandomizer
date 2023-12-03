@@ -130,16 +130,6 @@
      <pointsize>9</pointsize>
     </font>
    </property>
-   <item>
-    <property name="text">
-     <string>Point</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>PolyLine</string>
-    </property>
-   </item>
   </widget>
   <widget class="QPushButton" name="generate_pushButton">
    <property name="geometry">

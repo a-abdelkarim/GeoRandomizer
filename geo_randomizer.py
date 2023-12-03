@@ -25,6 +25,8 @@ from qgis.PyQt.QtCore import QSettings, QTranslator, QCoreApplication
 from qgis.PyQt.QtGui import QIcon
 from qgis.PyQt.QtWidgets import QAction
 
+from qgis.core import QgsProject, QgsWkbTypes
+
 # Initialize Qt resources from file resources.py
 from .resources import *
 # Import the code for the dialog
@@ -191,6 +193,7 @@ class GeoRandomizer:
             self.first_start = False
             self.dlg = GeoRandomizerDialog()
 
+            self._get_all_layers()
         # show the dialog
         self.dlg.show()
         # Run the dialog event loop
@@ -199,13 +202,38 @@ class GeoRandomizer:
         if result:
             # Do something useful here - delete the line containing pass and
             # substitute with your code.
-            point_generator = GeneratorFactory(
-                generator_type="point",
-                file_path='',
-                out_name='',
-                features_number=''
-            ) 
+            pass
+            
+            # point_generator = GeneratorFactory(
+            #     generator_type="point",
+            #     file_path='',
+            #     out_name='',
+            #     features_number=''
+            # )
         
     
     def handle_ui(self):
         pass
+    
+    def _get_all_layers(self):
+        # Clear the ComboBox to ensure it's empty
+        self.dlg.target_layer_comboBox.clear()
+        
+        # Populate the ComboBox with layer names
+        for layer in QgsProject.instance().mapLayers().values():
+            if QgsWkbTypes.displayString(layer.wkbType()) == "Polygon":
+                self.dlg.target_layer_comboBox.addItem(layer.name())
+            
+        self.dlg.target_layer_comboBox.currentIndexChanged.connect(self._on_change_target_layer_)
+    
+    def _get_selected_layer(self):
+        selected_item_text = self.dlg.target_layer_comboBox.currentText()
+        layer = QgsProject.instance().mapLayersByName(selected_item_text)[0]
+        return layer
+    
+    def _on_change_target_layer_(self, index):
+        # Get the current index and item text
+        current_index = self.dlg.layerList.currentIndex()
+        selected_item_text = self.dlg.layerList.currentText()
+        
+        print(selected_item_text)
